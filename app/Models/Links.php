@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Links extends Model
 {
     use HasFactory;
-    private const LINK_ID_LENGTH = 10;
+    private const LINK_ID_LENGTH = 7;
+    public const VALID_FULL_URL = 'bail|url|size:2000';
     
     public static function new($full_url)
     {

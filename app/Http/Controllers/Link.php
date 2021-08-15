@@ -18,7 +18,7 @@ class Link extends Controller
     public function add(Request $request) 
     {
         $request->validate([
-            'url' => 'url',
+            'url' => Links::VALID_FULL_URL,
         ]);
         
         $link_id = Links::new($request->input('url'));
