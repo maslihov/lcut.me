@@ -10,7 +10,9 @@
                 <dt class="col-sm-2">Create:</dt>
                 <dd class="col-sm-9">{{ $link->created_at }}</dd>
                 <dt class="col-sm-2">Full link:</dt>
-                <dd class="col-sm-9">{{ $link->full_url }}</dd>
+                <dd class="col-sm-9">
+                    <textarea rows=2 class="form-control" type="text" readonly>{{ urldecode($link->full_url) }}</textarea>
+                </dd>
                 <dt class="col-sm-2">Clicks:</dt>
                 <dd class="col-sm-9">{{ $link->clicks->count() }}</dd>
             </dl>
