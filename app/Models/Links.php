@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Clicks;
 
 class Links extends Model
 {
     use HasFactory;
     private const LINK_ID_LENGTH = 7;
-    public const VALID_FULL_URL = 'bail|url|size:2000';
+    public const VALID_FULL_URL = 'bail|url|max:2000';
     
     public static function new($full_url)
     {
@@ -22,6 +23,11 @@ class Links extends Model
         $link->save();
         
         return $link_id;
+    }
+    
+    public function clicks()
+    {
+        return $this->hasMany(Clicks::class, 'link_id', 'link_id');
     }
     
     private static function randCharStr($len)

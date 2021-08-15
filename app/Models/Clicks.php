@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Clicks extends Model
 {
     use HasFactory;
-    public static function click($link_id) 
+    public static function click($id) 
     {
         $click = new static;
-        $click->link_id = $link_id;
+        $click->link_id = $id;
         $click->save();
     }
 }

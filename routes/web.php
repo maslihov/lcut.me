@@ -19,3 +19,5 @@ Route::get('/', function () {
 });
 
 Route::get('/{link:link_id}', [Link::class, 'redirect']);
+
+Route::get('/{link:link_id}/info', [Link::class, 'info']);

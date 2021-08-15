@@ -27,4 +27,9 @@ class Link extends Controller
             'short_link' => url($link_id)
         ];
     }
+    
+    public function info(Links $link)
+    {
+        return view('info', ['link' => $link]);
+    }
 }
